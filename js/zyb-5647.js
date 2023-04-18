@@ -25,9 +25,13 @@ const liElementHTML = document.getElementsByTagName("li");
 //})
 //***********************************************************
 //convertendo htmlColection em Array de forma indireta
-const liElementArray = [...liElementHTML];
-console.log(liElementArray);
-
-liElementArray.map((item,key)=>{
-    console.log(`${(key+1)} - ${item.textContent}`)
-})
+// const liElementArray = [...liElementHTML];
+// //console.log(liElementArray);
+// //***********************************************************
+// //coletando um unico item
+// liElementArray.map((item,key)=>{
+//     if (item.textContent  == "item-39" ){
+//     console.log(`${(key+1)} - ${item.textContent}`)
+//     }
+// })
+//***********************************************************
