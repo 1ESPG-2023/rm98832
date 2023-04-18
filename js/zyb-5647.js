@@ -15,6 +15,9 @@ console.log(`Array-2 ${nr2}`);
 console.log(`Array-3 ${nr3}`);
 
 // listando um Array
-nr3.forEach((itensDoArray) => {
-    console.log(`Array-3 sendo listado ${itensDoArray}`)
-});
+// nr3.forEach((itensDoArray) => {
+//     console.log(`Array-3 sendo listado ${itensDoArray}`)
+// });
+
+
+console.log("18/04")
