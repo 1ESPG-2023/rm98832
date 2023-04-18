@@ -35,3 +35,19 @@ const liElementHTML = document.getElementsByTagName("li");
 //     }
 // })
 //***********************************************************
+// function soma(p1,p2,p3) {
+//     nr1 = p1 
+//     nr2 = p2
+
+//     return parseInt(nr1) + parseInt(nr2) + parseInt(p3)
+
+//     // console.log(`resultado : ${parseInt(nr1) + parseInt(nr2) + parseInt(parametro)}`)
+//     // console.log(`este é o parametro que foi passado para a função : ${parametro}`)
+// }
+// soma();
+// //***********************************************************
+// const mudaCor = ()=>{
+//     //fução set-time-out
+//     setTimeout(alert("executou"),5000);
+// }
+// mudaCor();
