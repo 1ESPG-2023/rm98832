@@ -20,4 +20,4 @@ console.log(`Array-3 ${nr3}`);
 // });
 
 
-console.log("18/04")
+console.log("18/04");
