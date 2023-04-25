@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="ens">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,14 +10,14 @@
 </head>
 <body>
 
-   <header class="cabeçalho">
-        <span>CABEÇALHO</span>
+   <header class="cabecalho">
+        <span>CABECALHO</span>
    </header>
    <div class="container">
         <aside class="l-e">
             <span>B-E</span>
         </aside>
-        <section>
+        <section class="central">
             <span>CONTEUDO</span>
         </section>
         <aside class="l-d">
@@ -26,7 +26,9 @@
    </div>
    <footer class="rodape">
         <span>rodapé</span>
-        <button value="10" onclick="console.log(soma(this.value,10,5))"> click</button>
+        <!-- <button value="10" onclick="console.log(soma(this.value,10,5))"> click</button> -->
+        <button onclick="mudaCor()">Start</button>
+        <button onclick="clearTimeout(tmp)">Stop</button>
    </footer>
         
 </body>
