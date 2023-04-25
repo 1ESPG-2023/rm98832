@@ -22,8 +22,10 @@
 .container .l-e{
     flex-grow: 1;
     background-color: rgb(4, 0, 255);
+    
 }
 .container .l-d{
     flex-grow: 1;
     background-color: rgb(68, 240, 217);
+   
 }
