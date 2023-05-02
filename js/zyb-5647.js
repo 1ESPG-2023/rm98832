@@ -53,64 +53,95 @@
 // mudaCor();
 // //***********************************************************
 // let tmp
-function mudaCor(){
-    let r = "";
-    let g = "";
-    let b = "";
+// function mudaCor(){
+//     let r = "";
+//     let g = "";
+//     let b = "";
 
-    //random = gera numeros aleatorios entre 0 e 1
-    //ceil, floor e round que arredonta o numero para cima, para baixo ou aleatoriamente
+//     //random = gera numeros aleatorios entre 0 e 1
+//     //ceil, floor e round que arredonta o numero para cima, para baixo ou aleatoriamente
     
-    //determinando um valor para a variavel r entre 0 e 255
-    r = Math.round(Math.random()*255);
+//     //determinando um valor para a variavel r entre 0 e 255
+//     r = Math.round(Math.random()*255);
     
-    g =  Math.round(Math.random()*255);
+//     g =  Math.round(Math.random()*255);
     
-    b = Math.round(Math.random()*255);
+//     b = Math.round(Math.random()*255);
     
 
-    const cabecalho = document.querySelector(".cabecalho");
-    cabecalho.setAttribute("style", `background-color:rgb(${r},${g},${b})`);
-    tmp = setTimeout(mudaCor, 1000)
-}
-mudaCor()
+//     const cabecalho = document.querySelector(".cabecalho");
+//     cabecalho.setAttribute("style", `background-color:rgb(${r},${g},${b})`);
+//     tmp = setTimeout(mudaCor, 1000)
+// }
+// mudaCor()
+// //***********************************************************
+//     function mdimg1(){
+//         let temp
+//         let nmr = Math.round(Math.random()*2);
+//         let caminho = `./img/banner-lateral-${nmr}.png`;
 
-    function mdimg1(){
-        let temp
-        let nmr = Math.round(Math.random()*2);
-        let caminho = `./img/banner-lateral-${nmr}.png`;
-
-        const img1 = document.querySelector(".l-e > img");
-        img1.src = caminho;
+//         const img1 = document.querySelector(".l-e > img");
+//         img1.src = caminho;
         
-        temp = setTimeout(mdimg1, 1000)
-    }
-    mdimg1();
-    function mdimg2(){
-        let temp
-        let nmr = Math.round(Math.random()*2);
-        let caminho = `./img/banner-lateral-${nmr}.png`;
+//         temp = setTimeout(mdimg1, 1000)
+//     }
+//     mdimg1();
+// //***********************************************************
+//     function mdimg2(){
+//         let temp
+//         let nmr = Math.round(Math.random()*2);
+//         let caminho = `./img/banner-lateral-${nmr}.png`;
 
-        const img1 = document.querySelector(".l-d > img");
-        img1.src = caminho;
+//         const img1 = document.querySelector(".l-d > img");
+//         img1.src = caminho;
         
-        temp = setTimeout(mdimg2, 1000)
-    }
-    mdimg2();
+//         temp = setTimeout(mdimg2, 1000)
+//     }
+//     mdimg2();
 
-
-    const botao = document.querySelector(".central button")
-    botao.addEventListener( click, ligadesliga)
-
-    function ligadesliga(){
-        const lampada = document.querySelector(".central  img");
+// //***********************************************************
+//     const botao = document.querySelector(".central button")
+//     botao.addEventListener( "click", ()=>{
+//         const lampada = document.querySelector(".central  img");
         
 
-        if(botao.textContent == "ligar"){
-            lampada.src = "./img/pic_bulb0.gif"
-            botao.textContent = "desligar"
-        }else{
-            lampada.src = "./img/pic_bulb1.gif"
-            botao.textContent = "ligar"
-        }
+//         if(botao.textContent == "ligar"){
+//             lampada.src = "./img/pic_bulb0.gif"
+//             botao.textContent = "desligar"
+//         }else{
+//             lampada.src = "./img/pic_bulb1.gif"
+//             botao.textContent = "ligar"
+//         }
+//     })
+// //***********************************************************
+    // function ligadesliga(){
+    //     const lampada = document.querySelector(".central  img");
+        
+
+    //     if(botao.textContent == "ligar"){
+    //         lampada.src = "./img/pic_bulb0.gif"
+    //         botao.textContent = "desligar"
+    //     }else{
+    //         lampada.src = "./img/pic_bulb1.gif"
+    //         botao.textContent = "ligar"
+    //     }
+    // }
+// //***********************************************************
+// //***********************************************************
+const inputUser = document.querySelector("input[name='nmUser']");
+
+inputUser.addEventListener("focus", ()=>{
+    
+    inputUser.setAttribute("style", "outline-color:#ff0000");
+    
+});
+
+inputUser.addEventListener("keyup", ()=>{
+    if(inputUser.value.length < 8){
+        inputUser.setAttribute("style", "outline-color:#ff0000");
+       
+    }else{
+        inputUser.setAttribute("style", "outline-color:#dddddd");
     }
+});
+
