@@ -97,3 +97,20 @@ mudaCor()
         temp = setTimeout(mdimg2, 1000)
     }
     mdimg2();
+
+
+    const botao = document.querySelector(".central button")
+    botao.addEventListener( click, ligadesliga)
+
+    function ligadesliga(){
+        const lampada = document.querySelector(".central  img");
+        
+
+        if(botao.textContent == "ligar"){
+            lampada.src = "./img/pic_bulb0.gif"
+            botao.textContent = "desligar"
+        }else{
+            lampada.src = "./img/pic_bulb1.gif"
+            botao.textContent = "ligar"
+        }
+    }
