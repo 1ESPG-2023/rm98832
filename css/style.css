@@ -12,20 +12,24 @@
     display: flex;
     justify-content: space-between;
     width: 100vw;
-    height: 60vh;
+    height: auto;
     background-color: rgb(130, 0, 252);
 }
 .container .central{
     flex-grow: 5;
+    
+   
 }
 
 .container .l-e{
     flex-grow: 1;
     background-color: rgb(4, 0, 255);
+    text-align: center;
     
 }
 .container .l-d{
     flex-grow: 1;
     background-color: rgb(68, 240, 217);
-   
+    text-align: center;
+    
 }
