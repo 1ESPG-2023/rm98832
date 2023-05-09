@@ -37,19 +37,21 @@ addEventListener("click",(evento)=>{
         //cria a variavel usuario e seleciona o seu valor
         // let usuario = document.querySelector("#idUser").value;
         // let senha = document.querySelector("#idPass").value
-        usuario.nomeUsuario = document.querySelector("#idUser").value;
-        usuario.senhaUsuario = document.querySelector("#idPass").value
+        // usuario.nomeUsuario = document.querySelector("#idUser").value;
+        // usuario.senhaUsuario = document.querySelector("#idPass").value
+        
+        let lista = JSON.parse(localStorage.getItem("listaUser"));
 
-
-        //com a variavel criada consegue seleconar o valor do elemento pelo html
- 
-        const h1titulo = document.querySelector("#titulo")
-        if (usuario.nomeUsuario == "matheus" && usuario.senhaUsuario == "senha"){
-            h1titulo.innerHTML = "bem vindo : "+usuario.nomeUsuario
+        lista.forEach((usuario)=> {
+             //VALIDAÇÃO
+        if(inputUserValue == usuario.nomeUsuario && inputPassValue == usuario.senhaUsuario){
+            console.log("VALIDADO!");   
+            h1Titulo.innerHTML = "Bem vindo : " + usuario.nomeUsuario;
         }else{
-            h1titulo.innerHTML = ""
+            console.log("NÃO VALIDOU!");
+            h1Titulo.innerHTML = "";
         }
-    }
+    });
+}
 });
-
 //***********************************************************
