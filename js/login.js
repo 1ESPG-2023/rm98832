@@ -1,57 +1,86 @@
-//gerando objtos no localstorage
+
+//GERANDO DOIS OBJETOS NO LOCALSTORAGE
 const usuario1 = {
     nomeUsuario:"predo",
-    senhaUsuario:"123"
+    senhaUsuario:"12345"
 }
+
 const usuario2 = {
-    nomeUsuario:"paulin",
-    senhaUsuario:"123"
+    nomeUsuario:"anzina",
+    senhaUsuario:"12345"
 }
 
 let listaDeUsuarios = [];
 listaDeUsuarios.push(usuario1);
 listaDeUsuarios.push(usuario2);
 
-localStorage.setItem("listaUser",listaDeUsuarios);
+localStorage.setItem("listaUser",  JSON.stringify(listaDeUsuarios));
+
+
+//VAMOS CRIAR UM OBJETO PARA ARMAZENAR O NOSSO USUÁRIO
+// const usuario = {
+//     nomeUsuario:"",
+//     senhaUsuario:""
+// }
 
 
 
-
-
-//vamos criar um objeto para armazenar o nosso usuario
-
-const usuario = {
-    nomeUsuario:"",
-    senhaUsuario:""
-}
-//rastreando eventos
 addEventListener("click",(evento)=>{
-    evento. preventDefault()
 
-    //serve para rastrear um elemento especifico pelo seu id
-    //console.log(evento.target.id == "btnSubmit")
+    evento.preventDefault();
 
-    //situação para se a condição for verdadeira 
-    if (evento.target.id == "btnSubmit"){
-
-        //cria a variavel usuario e seleciona o seu valor
+    if(evento.target.id == "btnSubmit"){
         // let usuario = document.querySelector("#idUser").value;
-        // let senha = document.querySelector("#idPass").value
-        // usuario.nomeUsuario = document.querySelector("#idUser").value;
-        // usuario.senhaUsuario = document.querySelector("#idPass").value
+        // let senha = document.querySelector("#idPass").value;
+       
+        // RECUPERANDO DOS IMPUTS
+        let inputUserValue = document.querySelector("#idUser").value;
+        let inputPassValue = document.querySelector("#idPass").value;
         
+        const h1Titulo = document.querySelector("#titulo");
+
         let lista = JSON.parse(localStorage.getItem("listaUser"));
 
-        lista.forEach((usuario)=> {
-             //VALIDAÇÃO
-        if(inputUserValue == usuario.nomeUsuario && inputPassValue == usuario.senhaUsuario){
-            console.log("VALIDADO!");   
-            h1Titulo.innerHTML = "Bem vindo : " + usuario.nomeUsuario;
-        }else{
-            console.log("NÃO VALIDOU!");
-            h1Titulo.innerHTML = "";
-        }
-    });
-}
+        let userValidado = {};
+        
+        try{
+            lista.forEach((usuario)=> {
+                //VALIDAÇÃO
+                if(inputUserValue == usuario.nomeUsuario && inputPassValue == usuario.senhaUsuario){
+                    userValidado = usuario;
+                    throw "VALIDADO";
+                }
+            });
+
+                throw "NÃO VALIDADO";
+
+        }catch(msg){
+            if(msg == "VALIDADO"){
+                h1Titulo.innerHTML = "<span><strong>Login validado com sucesso!</strong></span>";
+                h1Titulo.setAttribute("style","color:#00ff00;");
+                //Setando um novo objeto no LocalStorage
+                localStorage.setItem("UserValidado",  JSON.stringify(userValidado));
+                //Direcionando o usuário para a página de sucesso!
+                window.location.href = "../sucesso.html";
+
+            }else{
+                h1Titulo.innerHTML = "<span><strong>Login ou senha inválidos!</strong></span>";
+                h1Titulo.setAttribute("style","color:#ff0000;");
+                window.location.href = "../erro.html";
+            }
+        }       
+    }
 });
-//***********************************************************
+
+try{
+    const userBemVindo = document.querySelector("#userWelcome");
+    let usuario = JSON.parse(localStorage.getItem("UserValidado"));
+    userBemVindo.innerHTML = usuario.nomeUsuario;
+}catch(erro){
+
+    if(userBemVindo != null){
+        userBemVindo.innerHTML = JSON.parse(localStorage.getItem("UserValidado")).nomeUsuario;
+    }
+}
+
+
