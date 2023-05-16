@@ -58,6 +58,10 @@ addEventListener("click",(evento)=>{
             if(msg == "VALIDADO"){
                 h1Titulo.innerHTML = "<span><strong>Login validado com sucesso!</strong></span>";
                 h1Titulo.setAttribute("style","color:#00ff00;");
+
+                //Adicionando uma propriedade ao nosso objeto userValidado
+                userValidado["token"] = Math.random().toString(16).substring(2)+Math.random().toString(16).substring(2);
+
                 //Setando um novo objeto no LocalStorage
                 localStorage.setItem("UserValidado",  JSON.stringify(userValidado));
                 //Direcionando o usuário para a página de sucesso!
@@ -75,12 +79,30 @@ addEventListener("click",(evento)=>{
 try{
     const userBemVindo = document.querySelector("#userWelcome");
     let usuario = JSON.parse(localStorage.getItem("UserValidado"));
-    userBemVindo.innerHTML = usuario.nomeUsuario;
+    
+    if(usuario){
+        
+        if(usuario.token){
+            userBemVindo.innerHTML = usuario.nomeUsuario;
+        }
+
+    }else{
+        window.location.href = "../erro.html";
+    }
+
+    const botaoLogout = document.querySelector("#btnLogout");
+    botaoLogout.addEventListener("click", ()=>{
+        localStorage.removeItem("UserValidado");
+        window.location.href = "../login.html";
+    });
+
 }catch(erro){
 
     if(userBemVindo != null){
         userBemVindo.innerHTML = JSON.parse(localStorage.getItem("UserValidado")).nomeUsuario;
     }
 }
+
+
 
 
